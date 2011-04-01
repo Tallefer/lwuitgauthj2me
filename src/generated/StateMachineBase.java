@@ -206,24 +206,24 @@ public abstract class StateMachineBase extends UIBuilder {
         return (com.sun.lwuit.Button)findByName("ButtonNewAccount", root);
     }
 
+    public static final int COMMAND_EditAccountAbort = 21;
     public static final int COMMAND_GoogleAuthenticatorJ2MEExit = 24;
-    public static final int COMMAND_NewAccountBack = 18;
     public static final int COMMAND_EditAccountDeleteAccount = 16;
-    public static final int COMMAND_AboutZurCk = 3;
     public static final int COMMAND_AccountItem123456 = 10;
-    public static final int COMMAND_EditAccountBack = 21;
     public static final int COMMAND_EditAccountSave = 22;
     public static final int COMMAND_GoogleAuthenticatorJ2MEListNewAccount = 13;
+    public static final int COMMAND_AboutBack = 25;
     public static final int COMMAND_NewAccountCreateAccount = 19;
     public static final int COMMAND_GoogleAuthenticatorJ2MENewAccount = 23;
     public static final int COMMAND_GoogleAuthenticatorJ2MEListBeenden = 5;
     public static final int COMMAND_GoogleAuthenticatorJ2MEListAbout = 4;
+    public static final int COMMAND_NewAccountAbort = 18;
 
-    protected boolean onGoogleAuthenticatorJ2MEExit() {
+    protected boolean onEditAccountAbort() {
         return false;
     }
 
-    protected boolean onNewAccountBack() {
+    protected boolean onGoogleAuthenticatorJ2MEExit() {
         return false;
     }
 
@@ -231,15 +231,7 @@ public abstract class StateMachineBase extends UIBuilder {
         return false;
     }
 
-    protected boolean onAboutZurCk() {
-        return false;
-    }
-
     protected boolean onAccountItem123456() {
-        return false;
-    }
-
-    protected boolean onEditAccountBack() {
         return false;
     }
 
@@ -248,6 +240,10 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
     protected boolean onGoogleAuthenticatorJ2MEListNewAccount() {
+        return false;
+    }
+
+    protected boolean onAboutBack() {
         return false;
     }
 
@@ -267,16 +263,20 @@ public abstract class StateMachineBase extends UIBuilder {
         return false;
     }
 
+    protected boolean onNewAccountAbort() {
+        return false;
+    }
+
     protected void processCommand(ActionEvent ev, Command cmd) {
         switch(cmd.getId()) {
-            case COMMAND_GoogleAuthenticatorJ2MEExit:
-                if(onGoogleAuthenticatorJ2MEExit()) {
+            case COMMAND_EditAccountAbort:
+                if(onEditAccountAbort()) {
                     ev.consume();
                 }
                 return;
 
-            case COMMAND_NewAccountBack:
-                if(onNewAccountBack()) {
+            case COMMAND_GoogleAuthenticatorJ2MEExit:
+                if(onGoogleAuthenticatorJ2MEExit()) {
                     ev.consume();
                 }
                 return;
@@ -287,20 +287,8 @@ public abstract class StateMachineBase extends UIBuilder {
                 }
                 return;
 
-            case COMMAND_AboutZurCk:
-                if(onAboutZurCk()) {
-                    ev.consume();
-                }
-                return;
-
             case COMMAND_AccountItem123456:
                 if(onAccountItem123456()) {
-                    ev.consume();
-                }
-                return;
-
-            case COMMAND_EditAccountBack:
-                if(onEditAccountBack()) {
                     ev.consume();
                 }
                 return;
@@ -313,6 +301,12 @@ public abstract class StateMachineBase extends UIBuilder {
 
             case COMMAND_GoogleAuthenticatorJ2MEListNewAccount:
                 if(onGoogleAuthenticatorJ2MEListNewAccount()) {
+                    ev.consume();
+                }
+                return;
+
+            case COMMAND_AboutBack:
+                if(onAboutBack()) {
                     ev.consume();
                 }
                 return;
@@ -337,6 +331,12 @@ public abstract class StateMachineBase extends UIBuilder {
 
             case COMMAND_GoogleAuthenticatorJ2MEListAbout:
                 if(onGoogleAuthenticatorJ2MEListAbout()) {
+                    ev.consume();
+                }
+                return;
+
+            case COMMAND_NewAccountAbort:
+                if(onNewAccountAbort()) {
                     ev.consume();
                 }
                 return;
@@ -864,6 +864,10 @@ public abstract class StateMachineBase extends UIBuilder {
             }
         }
         if(rootContainerName.equals("About")) {
+            if("TextArea".equals(c.getName())) {
+                onAbout_TextAreaAction(c, event);
+                return;
+            }
             if("Button".equals(c.getName())) {
                 onAbout_ButtonAction(c, event);
                 return;
@@ -948,6 +952,9 @@ public abstract class StateMachineBase extends UIBuilder {
       }
 
       protected void onGoogleAuthenticatorJ2ME_ButtonAboutAction(Component c, ActionEvent event) {
+      }
+
+      protected void onAbout_TextAreaAction(Component c, ActionEvent event) {
       }
 
       protected void onAbout_ButtonAction(Component c, ActionEvent event) {
