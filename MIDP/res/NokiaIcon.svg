@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg3002"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="NokiaIcon.svg"
+   x="0px"
+   y="0px"
+   viewBox="0 0 150 150"
+   xml:space="preserve"
+   width="100%"
+   height="100%"><metadata
+   id="metadata13"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs11"><inkscape:perspective
+     sodipodi:type="inkscape:persp3d"
+     inkscape:vp_x="0 : 75 : 1"
+     inkscape:vp_y="0 : 1000 : 0"
+     inkscape:vp_z="150 : 75 : 1"
+     inkscape:persp3d-origin="75 : 50 : 1"
+     id="perspective15" /></defs>
+<sodipodi:namedview
+   id="namedview3015"
+   inkscape:window-y="421"
+   inkscape:window-x="1912"
+   inkscape:window-maximized="1"
+   inkscape:window-height="1058"
+   inkscape:window-width="1770"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   inkscape:current-layer="g3006"
+   borderopacity="1"
+   inkscape:zoom="1.94"
+   inkscape:cx="75"
+   guidetolerance="10"
+   inkscape:cy="75"
+   bordercolor="#666666"
+   showgrid="false"
+   gridtolerance="10"
+   objecttolerance="10"
+   pagecolor="#ffffff">
+	</sodipodi:namedview>
+<g
+   id="g3006">
+	<title
+   id="title3008">Layer 1</title>
+	<g
+   id="layer1">
+		<g
+   id="g2061">
+			<path
+   id="rect2723"
+   fill="#007F00"
+   d="M75,14.191c-20.072,0-36.231,16.159-36.231,36.231v40.256h10.064V50.422     c0-14.497,11.67-26.167,26.167-26.167c14.496,0,26.166,11.67,26.166,26.167v40.256h10.064V50.422     C111.23,30.35,95.072,14.191,75,14.191z" />
+			<path
+   id="rect1941"
+   fill="#007F00"
+   d="M32.699,69.55h84.602c0.277,0,0.5,0.224,0.5,0.5v65.259c0,0.277-0.223,0.5-0.5,0.5H32.699     c-0.276,0-0.5-0.223-0.5-0.5V70.05C32.199,69.774,32.422,69.55,32.699,69.55z" />
+		</g>
+	</g>
+	
+		<g
+   transform="matrix(1 -0.0056 0.0056 1 49.1431 126.0898)"
+   style="font-size:66.51820374px;fill:#ffffff;font-family:TimesNewRomanPS-BoldMT"
+   id="svg_1"><path
+     d="m 40.826847,-45.049194 1.136785,13.901266 -1.136785,0 c -1.147652,-3.464456 -2.630885,-6.073647 -4.449704,-7.827582 -2.620054,-2.533367 -5.987102,-3.800069 -10.101153,-3.800112 -5.608164,4.3e-5 -9.873813,2.219479 -12.796959,6.658316 -2.446807,3.746012 -3.6702041,8.206538 -3.6701943,13.381592 -9.8e-6,4.200712 0.8119793,8.0333 2.4359693,11.497775 1.623966,3.4644978 3.751377,6.0033167 6.38224,7.6164645 2.630825,1.6131551 5.332042,2.4197308 8.103658,2.4197296 1.623951,1.2e-6 3.193797,-0.2057027 4.709541,-0.6171122 1.515681,-0.411406 2.977261,-1.0176911 4.384745,-1.8188572 l 0,-12.7319997 c -3.6e-5,-2.208594 -0.167847,-3.653934 -0.503434,-4.336026 -0.335657,-0.68205 -0.85533,-1.201723 -1.55902,-1.55902 -0.703758,-0.357253 -1.943395,-0.535891 -3.718914,-0.535913 l 0,-1.234225 17.051786,0 0,1.234225 -0.81199,0 c -1.688983,2.2e-5 -2.847421,0.563001 -3.475316,1.688938 -0.433104,0.801184 -0.649634,2.381856 -0.649592,4.742021 l 0,13.4790303 C 39.668368,-1.5481923 37.210748,-0.56297903 34.785643,0.06495918 32.360467,0.69289726 29.664664,1.0068663 26.698224,1.0068673 18.188553,1.0068663 11.725121,-1.7214166 7.3079081,-7.1779898 3.9949858,-11.270407 2.3385283,-15.99077 2.3385306,-21.339092 c -2.3e-6,-3.875872 0.9310784,-7.589369 2.7932449,-11.1405 2.2086049,-4.22231 5.2400305,-7.470266 9.0942855,-9.743877 3.226289,-1.883772 7.037224,-2.82568 11.432816,-2.825725 1.6023,4.5e-5 3.058467,0.129964 4.368505,0.389755 1.309979,0.259882 3.166727,0.833687 5.57025,1.721419 1.212535,0.454757 2.024524,0.682113 2.43597,0.682071 0.41137,4.2e-5 0.763231,-0.189422 1.055587,-0.568393 0.292277,-0.378885 0.470914,-1.120502 0.535913,-2.224852 z"
+     style="font-family:Times New Roman;-inkscape-font-specification:Times New Roman"
+     id="path2824" /></g>
+</g>
+</svg>
