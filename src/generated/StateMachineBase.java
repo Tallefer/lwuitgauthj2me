@@ -60,7 +60,10 @@ public abstract class StateMachineBase extends UIBuilder {
     }
 
     protected void initTheme(Resources res) {
-            UIManager.getInstance().setThemeProps(res.getTheme(res.getThemeResourceNames()[0]));
+            String[] themes = res.getThemeResourceNames();
+            if(themes != null && themes.length > 0) {
+                UIManager.getInstance().setThemeProps(res.getTheme(themes[0]));
+            }
     }
 
     public StateMachineBase() {
@@ -900,10 +903,6 @@ public abstract class StateMachineBase extends UIBuilder {
                 onEditAccount_TextFieldAccountNameAction(c, event);
                 return;
             }
-            if("TextFieldKey".equals(c.getName())) {
-                onEditAccount_TextFieldKeyAction(c, event);
-                return;
-            }
             if("TextArea".equals(c.getName())) {
                 onEditAccount_TextAreaAction(c, event);
                 return;
@@ -976,9 +975,6 @@ public abstract class StateMachineBase extends UIBuilder {
       }
 
       protected void onEditAccount_TextFieldAccountNameAction(Component c, ActionEvent event) {
-      }
-
-      protected void onEditAccount_TextFieldKeyAction(Component c, ActionEvent event) {
       }
 
       protected void onEditAccount_TextAreaAction(Component c, ActionEvent event) {

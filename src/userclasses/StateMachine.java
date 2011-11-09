@@ -101,7 +101,6 @@ public class StateMachine extends StateMachineBase {
         super.beforeEditAccount(f);
         if (curAcc != null) {
             findTextFieldAccountName(f).setText(curAcc.getAccountName());
-            findTextFieldKey(f).setText(curAcc.getSecretKey());
         }
     }
 
@@ -124,9 +123,7 @@ public class StateMachine extends StateMachineBase {
         Form current = Display.getInstance().getCurrent();
         if (current != null && curAcc != null) {
             String accName = findTextFieldAccountName(current).getText();
-            String secretKey = findTextFieldKey(current).getText();
             curAcc.setAccountName(accName);
-            curAcc.setSecretKey(secretKey);
         }
         return val;
     }
