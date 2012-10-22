@@ -9,6 +9,7 @@ import TokenGenerator.TokenGen;
 import com.sun.lwuit.Container;
 import com.sun.lwuit.events.ActionEvent;
 import com.sun.lwuit.events.ActionListener;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
@@ -18,7 +19,7 @@ import java.util.Vector;
  * @author rafael
  */
 public class AccountManager implements IAccountItemObserver {
-
+    public static final long KeyUpdateIntervall = 30000;
     private StateMachine gui;
     private Container accountContainer;
     private IAccountStorage accStor;
@@ -35,13 +36,13 @@ public class AccountManager implements IAccountItemObserver {
         loadAccounts();
 
         updateKeysTimer = new Timer();
-        updateKeysTimer.schedule(new updateKeysTask(), 0, 30000);
+        updateKeysTimer.schedule(new updateKeysTask(), calculateTimeToNextKeyUpdate(), 30000);
         updateKeys();
 
     }
 
     private void createAccount(Account acc) {
-        AccountItem newItem = new AccountItem(acc, new TokenGen(),this);
+        AccountItem newItem = new AccountItem(acc, new TokenGen(), this);
         newItem.setActionListener(new ComponentActionListener(newItem));
         accounts.addElement(newItem);
     }
@@ -56,10 +57,10 @@ public class AccountManager implements IAccountItemObserver {
         }
     }
 
-    private void saveAccounts(){
-        if (accStor != null){
+    private void saveAccounts() {
+        if (accStor != null) {
             Account[] array = new Account[accounts.size()];
-            for (int i=0;i< accounts.size();i++){
+            for (int i = 0; i < accounts.size(); i++) {
                 array[i] = ((AccountItem) accounts.elementAt(i)).acc;
             }
             accStor.saveAccounts(array);
@@ -98,6 +99,11 @@ public class AccountManager implements IAccountItemObserver {
         t.start();
     }
 
+    private long calculateTimeToNextKeyUpdate() {
+        long offset = (new Date()).getTime() % KeyUpdateIntervall;
+        return KeyUpdateIntervall - offset;
+    }
+
     public void changed() {
         saveAccounts();
     }
@@ -106,7 +112,6 @@ public class AccountManager implements IAccountItemObserver {
         accounts.removeElement(accItem);
         saveAccounts();
     }
-
 
     private class ComponentActionListener implements ActionListener {
 
@@ -125,6 +130,10 @@ public class AccountManager implements IAccountItemObserver {
     private class updateKeysTask extends TimerTask {
 
         public final void run() {
+            if ((KeyUpdateIntervall - calculateTimeToNextKeyUpdate()) > 100) { // stay in sync (100ms)
+                updateKeysTimer.cancel();
+                updateKeysTimer.schedule(new updateKeysTask(), calculateTimeToNextKeyUpdate(), 30000);
+            }
             updateKeys();
         }
     }
