@@ -27,8 +27,9 @@ public class AccountItem {
         itemComponent = new AccountItemComponent(acc.getAccountName(), "---------");
     }
 
-    public void updateTokenKey() {
+    public void updateTokenKey(int millisecondsTillNextKeyUpdate) {
         itemComponent.setTokenKey(tokenGen.GenToken());
+        itemComponent.setTimeTillNextKeyUpdate(millisecondsTillNextKeyUpdate);
     }
 
     public void delete() {

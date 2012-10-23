@@ -90,9 +90,10 @@ public class AccountManager implements IAccountItemObserver {
 
             public void run() {
                 AccountItem account;
+                int timeTillNextUpdate = (int) calculateTimeToNextKeyUpdate();
                 for (int i = 0; i < accounts.size(); i++) {
                     account = (AccountItem) accounts.elementAt(i);
-                    account.updateTokenKey();
+                    account.updateTokenKey(timeTillNextUpdate);
                 }
             }
         });

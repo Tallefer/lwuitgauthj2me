@@ -6,14 +6,15 @@ package userclasses;
 
 import com.sun.lwuit.Button;
 import com.sun.lwuit.Container;
-import com.sun.lwuit.Display;
 import com.sun.lwuit.Label;
 import com.sun.lwuit.layouts.BoxLayout;
 import com.sun.lwuit.Image;
-import com.sun.lwuit.TextField;
-import com.sun.lwuit.events.ActionEvent;
+import com.sun.lwuit.animations.AnimationObject;
+import com.sun.lwuit.animations.Timeline;
 import com.sun.lwuit.events.ActionListener;
 import com.sun.lwuit.layouts.BorderLayout;
+import com.sun.lwuit.util.Resources;
+import org.bouncycastle.asn1.cms.Time;
 
 
 /**
@@ -29,6 +30,7 @@ public class AccountItemComponent extends Container {
     Label icon;
     Button btKey;
     Label lbAccount;
+    Timeline animatedIcon;
 
     public AccountItemComponent(String accountName, String tokenKey) {
         account = accountName;
@@ -38,7 +40,20 @@ public class AccountItemComponent extends Container {
 
         icon = new Label();
         try {
-            icon.setIcon(Image.createImage("/lock.png"));
+
+//            Timeline t = Timeline.createTimeline(30, null, new Dimension(32,32));
+//            AnimationObject ao = AnimationObject.createAnimationImage(i, 0, 0);
+//            ao.defineOpacity(AnimationObject.MOTION_TYPE_LINEAR, 0,1, 255, 255);
+            Resources res = Resources.open("/LWUIT.res");
+            Image i = res.getImage("AnimatedPadKey");
+            Timeline template = (Timeline) i;
+            AnimationObject[] animations = new AnimationObject[template.getAnimationCount()];
+            for (int x = 0; x < template.getAnimationCount(); x++){
+                animations[x] = template.getAnimation(x);
+            }
+            animatedIcon = Timeline.createTimeline(template.getDuration(), animations, template.getSize());
+            icon.setIcon(animatedIcon);
+            
         } catch (Exception ex) {
             System.out.print(ex.getMessage());
         }
@@ -76,6 +91,9 @@ public class AccountItemComponent extends Container {
 
     public void delete(){
         this.getParent().removeComponent(this);
-
+    }
+    
+    public void setTimeTillNextKeyUpdate(int ms){
+        animatedIcon.setTime((int) AccountManager.KeyUpdateIntervall - ms);
     }
 }
